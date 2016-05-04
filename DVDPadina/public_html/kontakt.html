@@ -11,6 +11,13 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/slideshow.css" rel="stylesheet">
 
+        <style>
+            #map{
+                width: 100%px;
+                height: 400px;
+                background-color: #CCC
+            }
+        </style>
 
     </head>
     <body>
@@ -78,7 +85,71 @@
         </div> <!-- /container -->
 
         <div class="container">
-            
+            <div class="row">
+                <div class="col-md-8 col-lg-8">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 ">Meno</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Vneste svoje meno">
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2" for="kontaktMailomMail" >E-mail adresa</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="kontaktMailomMail" placeholder="Venste svoju email adresu">
+                            </div>   
+
+                        </div>  
+                        <div class="form-group">
+                            <label class="col-sm-2" for="mail" >Predmet Mailu</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mail" placeholder="Vneste predmet mailu">
+                            </div>   
+
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <textarea class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <address>
+                        <strong>DVD Padina</strong><br>
+                        2 Oktobra<br>
+                        262015, Padina<br>
+                        Srbsko<br>
+                        <abbr title="Phone">P:</abbr> (+381)13- 667-190
+                    </address>
+
+                    <address>
+                        <strong>E-Mail</strong><br>
+                        <a href="mailto:#">dvd-padina@gmail.com</a>
+                    </address>
+
+                </div>
+
+            </div>
+
+            <div class=" row">
+                <div id="map" class="col-lg-10 col-lg-offset-1">
+
+
+                </div>
+            </div>
+
             <footer>
                 <p class="pull-right"><a href="#">Späť na vrch</a></p>
                 <p>&copy; Ondrej Mihalek. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
@@ -91,8 +162,22 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>');</script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/docs.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script>
+            function initMap() {
+                var mapDiv = document.getElementById('map');
+                var map = new google.maps.Map(mapDiv, {
+                    center: {lat: 45.1181074, lng: 20.7302554},
+                    zoom: 18
+
+                });
+                var marker = new google.maps.Marker({
+                    position: {lat: 45.1181074, lng: 20.7302554},
+                    map: map,
+                    title: 'DVD'
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
     </body>
 </html>
